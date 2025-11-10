@@ -1,10 +1,7 @@
-# Grundlage: offizielles n8n-Image
-FROM n8nio/n8n:latest
+# Debian-Basis -> apt-get ist vorhanden
+FROM n8nio/n8n:latest-debian
 
-# als root arbeiten, um Pakete zu installieren
 USER root
-
-# wkhtmltopdf + Fonts installieren
 RUN apt-get update && apt-get install -y --no-install-recommends \
     wkhtmltopdf \
     fonts-dejavu \
@@ -12,5 +9,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     fonts-noto \
   && rm -rf /var/lib/apt/lists/*
 
-# wieder zum Standardbenutzer wechseln
 USER node
+
