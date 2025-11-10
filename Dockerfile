@@ -1,13 +1,12 @@
-# Debian-Basis -> apt-get ist vorhanden
-FROM n8nio/n8n:latest-debian
+# Alpine-Basis (hat apk statt apt)
+FROM n8nio/n8n:latest
 
 USER root
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apk add --no-cache \
     wkhtmltopdf \
-    fonts-dejavu \
-    fonts-liberation \
-    fonts-noto \
-  && rm -rf /var/lib/apt/lists/*
+    fontconfig \
+    ttf-dejavu \
+    ttf-liberation \
+    noto-fonts
 
 USER node
-
