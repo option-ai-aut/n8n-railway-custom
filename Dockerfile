@@ -1,8 +1,8 @@
 # Dockerfile
-FROM n8nio/n8n:latest  # (Debian-basiert)
+FROM n8nio/n8n:latest
 
 USER root
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
   chromium \
   fonts-liberation fonts-noto-color-emoji \
   libasound2 libatk1.0-0 libatspi2.0-0 libdrm2 libgbm1 \
