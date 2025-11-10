@@ -1,4 +1,4 @@
-FROM n8nio/n8n:bookworm
+FROM docker.n8n.io/n8nio/n8n:latest
 
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -9,6 +9,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 \
   libxshmfence1 libxss1 libxtst6 xdg-utils ca-certificates \
   && rm -rf /var/lib/apt/lists/*
-
 ENV CHROME_BIN=/usr/bin/chromium
 USER node
