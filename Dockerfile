@@ -1,4 +1,7 @@
-# im Dockerfile
+# Dockerfile
+FROM n8nio/n8n:latest  # (Debian-basiert)
+
+USER root
 RUN apt-get update && apt-get install -y \
   chromium \
   fonts-liberation fonts-noto-color-emoji \
@@ -7,3 +10,6 @@ RUN apt-get update && apt-get install -y \
   libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 \
   libxshmfence1 libxss1 libxtst6 xdg-utils ca-certificates \
   && rm -rf /var/lib/apt/lists/*
+
+ENV CHROME_BIN=/usr/bin/chromium
+USER node
